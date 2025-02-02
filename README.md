@@ -4,8 +4,9 @@
 ## Release Plan
 
 ### v1.0
-- set up front-end and back-end
-- show a list of products
+- set up Java Spring Boot back-end
+- set up Angular front-end
+- display a list of products
 
 ### v2.0
 - online shop template integration
@@ -24,7 +25,7 @@
 
 ## v1.0 Development Steps
 
-### Spring Boot Back-End
+### Java Spring Boot Back-End
 1. Set up database tables
 2. Create Spring Boot starter project (start.spring.io)
 3. Develop the Entities
