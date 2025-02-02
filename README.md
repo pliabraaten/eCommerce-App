@@ -4,11 +4,17 @@
 ## Release Plan
 
 ### v1.0
-- Show a list of products
+- set up front-end and back-end
+- show a list of products
 
 ### v2.0
-- Add products to shopping cart (CRUD)
-- Shopping cart check out
+- online shop template integration
+- search for products by category
+- search for products by text box
+- master/detail view of products
+- pagination support for products
+- add products to shopping card (CRUD)
+- shopping cart check out
 
 ### v3.0
 - User login/logout security
@@ -33,3 +39,15 @@
 5. Update Angular component to subscribe to data from Angular service
 6. Display the data in an HTML page
 7. Add CrossOrigin support to Spring Boot app
+
+<br/>
+
+## v2.0 Development Steps
+
+### Online Shop Template
+1. download the HTML template starter files
+2. install Bootstrap CSS styles locally using npm
+3. add local custom CSS styles to Angular src/styles.css file
+4. integrate template files into Angular app
+5. add support for icons and logos
+6. add all products to the db and add product images
