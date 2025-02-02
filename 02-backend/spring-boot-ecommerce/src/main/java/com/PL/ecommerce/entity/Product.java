@@ -36,7 +36,7 @@ public class Product {
     private BigDecimal unitPrice;
 
     @Column(name = "image_url")
-    private  String imageURL;
+    private  String imageUrl;
 
     @Column(name = "active")
     private boolean active;
@@ -100,12 +100,12 @@ public class Product {
         this.unitPrice = unitPrice;
     }
 
-    public String getImageURL() {
-        return imageURL;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public boolean isActive() {

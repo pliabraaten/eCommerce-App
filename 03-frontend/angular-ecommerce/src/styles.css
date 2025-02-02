@@ -130,7 +130,7 @@ aside.menu-sidebar.d-none.d-lg-block.clr{
  */
 
 .header-desktop{
-    background:#0da8e4;
+    background:#3D7D89;
     -webkit-box-shadow:0 2px 5px 0 rgba(0,0,0,.1);
     -moz-box-shadow:0 2px 5px 0 rgba(0,0,0,.1);
     box-shadow:0 2px 5px 0 rgba(0,0,0,.1);
@@ -241,16 +241,16 @@ input.au-input.au-input-xl{
     font-size:22px;
     float:left;
     margin-top:16px;
-    color:#fff;
+    color:#1F3F45;
     margin-left:15px
 }
 
 .total{
-    background:#205b8d;
+    background:#3E897B;
     line-height:43px;
     color:#fff;
     border-radius:30px;
-    border:1px solid #0da8e4;
+    border:1px solid #A2D0C8;
     float:left;
     margin-top:7px;
     padding-left:17px
@@ -279,15 +279,15 @@ input.au-input.au-input-xl{
     right:0;
     min-width:95px;
     color:#fff;
-    border:1px solid #205b8d;
+    border:1px solid #A2C9D0;
     -webkit-border-radius:3px;
     -moz-border-radius:3px;
     border-radius:43px;
-    background:#205b8d
+    background:#3E897B;
 }
 
 .au-btn-submit:hover{
-    background:#05143f
+    background:#2B5860;
 }
 
 .au-btn-submit>i{
@@ -817,7 +817,7 @@ footer ul li{
         font-size:22px;
         float:left;
         margin-top:16px;
-        color:#205b8d;
+        color:#1F3F45;
         margin-left:15px
     }
     .header-mobile .header-mobile-bar{
@@ -912,7 +912,7 @@ footer ul li{
         font-size:22px;
         float:left;
         margin-top:16px;
-        color:#205b8d;
+        color:#1F3F45;
         margin-left:15px
     }
         .header-wrap2{
@@ -963,7 +963,7 @@ footer ul li{
         font-size:22px;
         float:left;
         margin-top:16px;
-        color:#205b8d;
+        color:#1F3F45;
         margin-left:15px
     }
     .footer-pagination{
@@ -1002,7 +1002,7 @@ footer ul li{
         font-size:18px;
         float:left;
         margin-top:16px;
-        color:#03a9f4;
+        color:#1F3F45;
         margin-left:15px
     }
     .total span{
