@@ -1,5 +1,7 @@
 ﻿# eCommerce-App
 
+This ShopStop eCommerce-App is a full-stack web application that includes Angular for the front-end framework, Java Spring Boot for the back-end services, and MySQL for the database. 
+HTML templates, initial db scripts, images, and guidance for this project came from the <em>Full Stack: Angular and Java Spring Boot E-Commerce Website</em> course on <a href="https://www.udemy.com/course/full-stack-angular-spring-boot-tutorial">Udemy<a/>.
 
 ## Release Plan
 
