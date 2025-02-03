@@ -20,6 +20,13 @@
                     </div>
 
                 </div>
+
+                <!--  If products is null/undefined or if products.length is 0, then display a message -->
+                                 <!-- ? is a safe navigation operator that guards against null and undefined values in paths -->
+                  <div *ngIf="products?.length ==0" class="alert alert-warning col-md-12" role="alert">
+                    No Products found.
+                  </div>
+
             </div>
         </div>
     </div>
