@@ -16,6 +16,7 @@ export class ProductListComponent implements OnInit {
 
   // Property for the selected category id (from router links app.module.ts)
   currentCategoryId: number = 1;
+  currentCategoryName: string = "";
 
   // Inject ProductService dependency and Activated Route
   constructor(private productService: ProductService,
@@ -38,10 +39,14 @@ export class ProductListComponent implements OnInit {
     if (hasCategoryId) {
       // Get the "id" param string, convert string to a number with + 
       this.currentCategoryId = +this.route.snapshot.paramMap.get('id')!;  // ! is a non-null assertion operator
+
+      // Get the "name" param string
+      this.currentCategoryName = this.route.snapshot.paramMap.get('name')!;
     }
     else {
       // If category id is not available, default to category id 1
       this.currentCategoryId = 1;
+      this.currentCategoryName = 'Books';
     }
     
     // Get the products for the given category id

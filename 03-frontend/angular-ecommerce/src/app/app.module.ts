@@ -13,7 +13,7 @@ import { ProductCategoryMenuComponent } from './components/product-category-menu
 const routes: Routes = [
   // When path matches, create new instance of component
     // Checks paths in order listed
-  {path: 'category/:id', component: ProductListComponent},
+  {path: 'category/:id/:name', component: ProductListComponent},  // Has id and name parameters to route
   {path: 'category', component: ProductListComponent},
   {path: 'products', component: ProductListComponent},
   {path: '', redirectTo: '/products', pathMatch: 'full'},  // If not path given, redirect back; pathMatch on full path not just prefix

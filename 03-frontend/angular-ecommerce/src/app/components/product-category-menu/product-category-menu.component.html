@@ -4,10 +4,11 @@
     <nav class="navbar-sidebar">
         <ul class="list-unstyled navbar-list">
             <li *ngFor="let tempProductCategory of productCategories">
-                <!-- router link refers to paths in app.module.ts 
-                routerLinkActive is for CCS style -->
-                <a routerLink="/category/{{ tempProductCategory.id }}" routerLinkActive="active-link">
-                    {{ tempProductCategory.categoryName }}</a>
+                <!-- router link refers to paths in app.module.ts -->
+                    <!-- routerLinkActive is for CCS style  -->
+                <a routerLink="/category/{{ tempProductCategory.id }}/{{ tempProductCategory.categoryName }}" routerLinkActive="active-link">
+                    {{ tempProductCategory.categoryName }}
+                </a>
             </li>
         </ul>
     </nav>
