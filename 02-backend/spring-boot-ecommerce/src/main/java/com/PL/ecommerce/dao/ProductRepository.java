@@ -16,11 +16,11 @@ public interface ProductRepository extends JpaRepository<Product, Long> {  // En
     // Category Search
     // Add new query method that matches category id by the parameter id value
         // Behind the scenes, Spring will execute a query like this: SELECT * FROM product WHERE category_id=?
-    Page<Product> findByCategoryId(@RequestParam("id") Long id, Pageable pageable);
+    Page<Product> findByCategoryId(@Param("id") Long id, Pageable pageable);
     // Spring Data REST automatically exposes endpoint  http://localhost:8080/api/products/search/findByCategoryId?id=2
 
     // Keyword Search
         // Behind the scenes, runs query like this: SELECT * FROM Product p WHERE p.name LIKE CONCAT('%', :name ,'%')
-    Page<Product> findByNameContaining(@Param("name") String name, Pageable page);
+    Page<Product> findByNameContaining(@Param("name") String name, Pageable pageable);
 
 }

@@ -8,11 +8,13 @@ import { ProductService } from './services/product.service';
 
 import { Routes, RouterModule } from '@angular/router';
 import { ProductCategoryMenuComponent } from './components/product-category-menu/product-category-menu.component';
+import { SearchComponent } from './components/search/search.component';
 
 // Add routes for category links
 const routes: Routes = [
   // When path matches, create new instance of component
     // Checks paths in order listed
+  {path: 'search/:keyword', component: ProductListComponent},  // Path for keyword search
   {path: 'category/:id/:name', component: ProductListComponent},  // Has id and name parameters to route
   {path: 'category', component: ProductListComponent},
   {path: 'products', component: ProductListComponent},
@@ -24,7 +26,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     ProductListComponent,
-    ProductCategoryMenuComponent
+    ProductCategoryMenuComponent,
+    SearchComponent
   ],
   imports: [
     RouterModule.forRoot(routes),

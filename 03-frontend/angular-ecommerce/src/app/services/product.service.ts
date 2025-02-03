@@ -11,7 +11,7 @@ export class ProductService {
 
   // REST API
   private baseUrl = 'http://localhost:8080/api/products';  // Used to fetch products
- 
+
   private categoryUrl = 'http://localhost:8080/api/product-category'  // Used to fetch product categories
 
   // Injects Angular's built in service for making HTTP requests; injected so this service class can be used to make API requests  
@@ -24,6 +24,20 @@ export class ProductService {
     const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${theCategoryId}`;
 
     // Make GET request
+    return this.getProducts(searchUrl);
+  }
+
+  // Searches products by keyword
+  searchProducts(theKeyword: string): Observable<Product[]> {
+    // Build URL based on category keyword
+    const searchUrl = `${this.baseUrl}/search/findByNameContaining?name=${theKeyword}`;
+
+    // Make GET request
+    return this.getProducts(searchUrl);
+  }
+
+  // 
+  private getProducts(searchUrl: string): Observable<Product[]> {
     return this.httpClient.get<GetResponseProducts>(searchUrl).pipe(  // pipe processes the Observable
       map(response => response._embedded.products)  // extracts array of products and returns it as the result
     );
@@ -31,7 +45,7 @@ export class ProductService {
 
   // Retrieves list of product categories from the API
   getProductCategories(): Observable<ProductCategory[]> {
-    
+
     return this.httpClient.get<GetResponseProductCategory>(this.categoryUrl).pipe(  // Sends GET request to the categoryUrl endpoint
       map(response => response._embedded.productCategory)  // Returns observable ; maps the JSON data from Spring Data REST to ProductCategory array
     );

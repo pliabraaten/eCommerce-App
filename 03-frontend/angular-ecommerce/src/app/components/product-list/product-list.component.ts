@@ -17,10 +17,11 @@ export class ProductListComponent implements OnInit {
   // Property for the selected category id (from router links app.module.ts)
   currentCategoryId: number = 1;
   currentCategoryName: string = "";
+  searchMode: boolean = false;
 
   // Inject ProductService dependency and Activated Route
   constructor(private productService: ProductService,
-              private route: ActivatedRoute) { }  // Current active route that loaded the component
+    private route: ActivatedRoute) { }  // Current active route that loaded the component
 
   // Similiar to @PostConstruct
   ngOnInit(): void {
@@ -29,12 +30,42 @@ export class ProductListComponent implements OnInit {
     });
   }
 
+
   listProducts() {
+
+    // Set searchMode to true if keyword has been passed in
+    this.searchMode = this.route.snapshot.paramMap.has('keyword');  // Keyword is passed in from SearchComponent
     
+    // If in searchMode, then run the search
+    if (this.searchMode) {
+      this.handleSearchProducts();
+    }
+    else {  // If not in searchMode, then just list products regular
+      this.handleListProducts();
+    }
+  }
+
+  // Run the product search
+  handleSearchProducts() {
+
+    // Get the inputted keyword
+    const theKeyword: string = this.route.snapshot.paramMap.get('keyword')!;
+
+    // Search for products using keyword
+    this.productService.searchProducts(theKeyword).subscribe(
+      data => {
+        this.products = data;
+      }
+    )
+  }
+
+  // List products
+  handleListProducts() {
+
     // Check if "id" parameter is available
     const hasCategoryId: boolean = this.route.snapshot.paramMap.has('id')
-        // = this . use acivate route . state of route . map of all route params . read the id param
-    
+    // = this . use acivate route . state of route . map of all route params . read the id param
+
     // If the id parameter exists
     if (hasCategoryId) {
       // Get the "id" param string, convert string to a number with + 
@@ -48,12 +79,13 @@ export class ProductListComponent implements OnInit {
       this.currentCategoryId = 1;
       this.currentCategoryName = 'Books';
     }
-    
+
     // Get the products for the given category id
     this.productService.getProductList(this.currentCategoryId).subscribe(  // Method is invoked once you 'subscribe'
       data => {
         this.products = data  // Assigns results to the Product array
       }
-    )  
+    )
   }
 }
+

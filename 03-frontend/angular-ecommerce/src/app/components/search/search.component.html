@@ -1,0 +1,17 @@
+
+<!-- Search using event binding -->
+<div class="form-header">
+
+    <!-- #myInput is template reference variable -->
+    <input #myInput type="text"
+        placeholder="Search for data ..."
+        class="au-input au-input-xl"  
+        (keyup.enter)="doSearch(myInput.value)"
+        />
+    <!-- Listens for enter key, call the doSearch method and pass in value user typed in -->
+
+    <!-- Listens for button click to call search method -->
+    <button (click)="doSearch(myInput.value)" class="au-btn-submit">
+        Search
+    </button>
+</div>
