@@ -5,38 +5,40 @@ import { Product } from '../common/product';
 import { ProductCategory } from '../common/product-category';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root'  // Service is provided globally
 })
 export class ProductService {
 
   // REST API
-  private baseUrl = 'http://localhost:8080/api/products';
+  private baseUrl = 'http://localhost:8080/api/products';  // Used to fetch products
+ 
+  private categoryUrl = 'http://localhost:8080/api/product-category'  // Used to fetch product categories
 
-  private categoryUrl = 'http://localhost:8080/api/product-category'
-
-  // Injects HttpClient  
+  // Injects Angular's built in service for making HTTP requests; injected so this service class can be used to make API requests  
   constructor(private httpClient: HttpClient) { }
 
-  // Maps JSON data from Spring Data REST to product array
+  // Maps JSON data from Spring Data REST to product array based on the category id
   getProductList(theCategoryId: number): Observable<Product[]> {
 
     // Build URL based on category id
     const searchUrl = `${this.baseUrl}/search/findByCategoryId?id=${theCategoryId}`;
 
-    return this.httpClient.get<GetResponseProducts>(searchUrl).pipe(
-      map(response => response._embedded.products)
+    // Make GET request
+    return this.httpClient.get<GetResponseProducts>(searchUrl).pipe(  // pipe processes the Observable
+      map(response => response._embedded.products)  // extracts array of products and returns it as the result
     );
   }
 
-
+  // Retrieves list of product categories from the API
   getProductCategories(): Observable<ProductCategory[]> {
     
-    return this.httpClient.get<GetResponseProductCategory>(this.categoryUrl).pipe(
-      map(response => response._embedded.productCategory)
+    return this.httpClient.get<GetResponseProductCategory>(this.categoryUrl).pipe(  // Sends GET request to the categoryUrl endpoint
+      map(response => response._embedded.productCategory)  // Returns observable ; maps the JSON data from Spring Data REST to ProductCategory array
     );
   }
 }
 
+// DEFINE STRUCTURE OF THE GET RESPONSES
 // Unwraps the JSON from Spring Data REST _embedded entry
 interface GetResponseProducts {
   _embedded: {

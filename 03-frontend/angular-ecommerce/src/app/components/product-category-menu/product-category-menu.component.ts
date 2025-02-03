@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
+import { ProductCategory } from 'src/app/common/product-category';
 
 @Component({
   selector: 'app-product-category-menu',  // Tag to include this component in the html as <app-product-category-menu></app-product-category-menu>
